@@ -5,7 +5,7 @@ $(function() {
     const addItem = $('#add-item');
     const table = $('#transaction');
     const totalSalesElement = $('#total-sales');
-    const baseUrl = "http://htudemo.local";
+    const baseUrl = "http://pos.local";
     let totalSales = 0;
 
 
@@ -29,7 +29,7 @@ $(function() {
                         background-color: white;" class="text-center"></td>
                         <td name='price_id'data-id=price${element.id} class="text-center unit-price">${element.price}</td>
                         <input type="hidden" name='price'data-id=price${element.id} value=${element.price}>
-                        <td data-id=total${element.id} class="text-center">${element.total}</td>
+                        <td data-id=total${element.id} class="text-center">${totalSales += element.quantity * element.price}</td>
                         <td class="text-center">
                         <button data-id=delete${element.id} class="text-center btn btn-danger" type="button"><i class="fa-solid fa-trash"></i></button>
                         </td>
@@ -37,11 +37,9 @@ $(function() {
                     
              `);
 
-                totalSales += element.quantity * element.price;
-
                 totalSalesElement.text(totalSales + "JOD");
 
-                let previous_quantity = $(`input[data-id="pre-quantity${element.id}"]`).val();
+                //let previous_quantity = $(`input[data-id="pre-quantity${element.id}"]`).val();
 
 
                 $(`button[data-id="delete${element.id}"]`).click(function() {
@@ -108,17 +106,17 @@ $(function() {
                         background-color: white;" class="text-center"></td>
                         <td name='price_id'data-id=price${element.id} class="text-center unit-price">${element.price}</td>
                         <input type="hidden" name='price'data-id=price${element.id} value=${element.price}>
-                        <td data-id=total${element.id} class="text-center">${element.total}</td>
+                        <td data-id=total${element.id} class="text-center">${totalSales += element.quantity * element.price}</td>
                         <td class="text-center">
                         <button data-id=delete${element.id} class="text-center btn btn-danger edit " type="button"><i class="fa-solid fa-trash "></i></button>
                         </td>
                         </tr>
                     `);
-                    totalSales += element.quantity * element.price;
+
 
                     totalSalesElement.text(totalSales + "JOD");
 
-                    let previous_quantity = $(`input[data-id="pre-quantity${element.id}"]`).val();
+                    // let previous_quantity = $(`input[data-id="pre-quantity${element.id}"]`).val();
 
 
                     $(`button[data-id="delete${element.id}"]`).click(function() {
