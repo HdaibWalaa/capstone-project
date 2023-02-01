@@ -10,7 +10,7 @@ class Model
     /**
      * automatically call this function when you create an object from a class and have connection and related table function
      *
-     * @return void
+     *
      */
     public function __construct()
     {
@@ -21,7 +21,7 @@ class Model
     /**
      * will automatically call this function at the end of the script and close the connection with database
      *
-     * @return void
+     *
      */
 
     public function __destruct()
@@ -81,7 +81,7 @@ class Model
     /**
      * delete the data from table that we need to delete it
      *
-     * @return void
+     *
      */
 
     public function delete($id)
@@ -262,16 +262,11 @@ class Model
 
     protected function relate_table()
     {
-        //in this frame work the Modle singular and controller and table of DB plurlar 
-        //get the name of class that make instance 
+
         $table_name = \get_class($this);
-        //when we get the class it's will get it with namespace so we should to explode in \ 
         $table_name_arr = \explode('\\', $table_name);
-        // we need the last key that the name of table but its singlular
-        $class_name = $table_name_arr[\array_key_last($table_name_arr)]; // $table_name_arr[2]
-        // change it to plurar 
+        $class_name = $table_name_arr[\array_key_last($table_name_arr)];
         $final_clas_name = \strtolower($class_name) . "s";
-        // the table name is ready
         $this->table = $final_clas_name;
     }
 
